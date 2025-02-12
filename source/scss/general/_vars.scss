@@ -1,0 +1,97 @@
+// --------------- hex to rgba mixin ---------------
+@function HexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+:root {
+// --------------- default global variable ---------------
+  --body-bg: #f3ede0;
+  --footer-bg: #0C1323;
+  --body-font-size: 16px;
+  --header-h: 90px;
+  --content-width: 1368px;
+  --content-width-mode: 1280px;
+  --container-offset: 16px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --container-width-mode: calc(var(--content-width-mode) + (var(--container-offset) * 2));
+
+// --------------- default JS variable ---------------
+  --size: Min(24vw, 264px);
+// --------------- default JS tablet variable ---------------
+  @media (max-width: 1024px) {
+    --header-h: 64px;
+  }
+
+
+// ---------------- font - sizes --------------------------
+--t-xxs: 10px;
+--t-xs: 12px;
+--t-sm: 14px;
+--t-base: 16px;
+--t-md: 18px;
+--t-lg: 20px;
+--t-xl: 24px;
+--t-xxl: 26px;
+--t-xxl-2: 28px;
+--t-xxl-3: 32px;
+--t-xxl-4: 36px;
+// --------------- default scroll variable ---------------
+  --scrollbar-thumb: #6866F6;
+  --scrollbar-thumb-hover: #f6866F6ff;
+  --scrollbar-track:  #05031d;
+  --scrollbar-track-hover: #05031d;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+
+// --------------- default select variable ---------------
+  --select-inner-bg: #404040;
+  --select-inner-border: #FDFDFD;
+  --select-focus-border: #FDFDFD;
+
+// --------------- default font-family variable ---------------
+  --ff: "Amapola", sans-serif;
+  --ff-sec: "Intro", sans-serif;
+  --ff-gil: "Gilroy", sans-serif;
+  --ff-con: "Constantine", sans-serif;
+// --------------- default text color variable ---------------
+  // --burger-cl: #{HexToRGB(#00d655)};
+
+--clr-b: #{HexToRGB(#000000)};
+--clr-w: #{HexToRGB(#ffffff)};
+--clr-r: #{HexToRGB(#f94e49)};
+--clr-grn: #{HexToRGB(#29ffa2)};
+--clr-pr: #{HexToRGB(#c4333b)};
+--clr-r-2: #{HexToRGB(#c82039)};
+--clr-light: #{HexToRGB(#e7e7e7)};
+--clr-light-2: #{HexToRGB(#cccdcf)};
+--clr-p: #{HexToRGB(#d9077c)};
+--clr-gr: #{HexToRGB(#5e6072)};
+--clr-y: #{HexToRGB(#dad0a4)};
+--clr-bl: #{HexToRGB(#0690c1)};
+--clr-bl-2: #{HexToRGB(#3183df)};
+--clr-o: #{HexToRGB(#ee6742)};
+
+
+// --------------- default background clr variable ---------------
+--bg-b: #{HexToRGB(#030202)};
+--bg-item-red: #{HexToRGB(#d7476d)};
+--bg-item-ppl: #{HexToRGB(#700fd7)};
+--bg-rating-item: #{HexToRGB(#211b28)};
+
+// --------------- default border cl variable ---------------
+--br-a: #3D3E5C; // var(--br-a);
+--br-b: #262D3D; // var(--br-b);
+--br-c: #D72F33; // var(--br-c);
+--br-d: #1E6FF6; // var(--br-d);
+--br-e: #ECBF08; // var(--br-e);
+
+--br-f: #546DB3; // var(--br-f);
+--br-g: #66F6A8; // var(--br-g);
+
+// ---------------- transition ----------------------
+--delay-transition: cubic-bezier(.47,1.64,.41,.8);
+}
+
+@media (max-width: (767px)) {
+  :root {
+    --container-offset: 12px;
+  }
+}

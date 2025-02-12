@@ -1,0 +1,249 @@
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  &-aside {
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+  }
+  &-close {
+    display: none;
+  }
+  &-menu {
+    display: none;
+    width: 24px;
+    height: 24px;
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 6px;
+    transform: translateY(8px);
+    opacity: 0;
+    transition: all 400ms ease;
+    will-change: opacity, transform;
+    &__item {
+      display: flex;
+      align-items: center;
+      grid-gap: 8px;
+    }
+  }
+  &-lang {
+    position: relative;
+    cursor: default;
+    &:hover {
+      .header-list {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    span {
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    &__arrow {
+      max-width: 12px;
+    }
+  }
+  &-hidden {
+    position: absolute;
+    left: 0;
+    padding-top: 1rem;
+  }
+  &-visible {
+    display: flex;
+    align-items: center;
+    grid-gap: 8px;
+  }
+
+  &-flag {
+    max-width: 2rem;
+  }
+
+  &::after {
+    @include pseudo;
+    width: 100%;
+    height: calc(var(--header-h) * 2);
+    top: 0;
+    left: 0;
+    background-image: url("../../img/header/headerOverlay.webp");
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  &-cta {
+    min-width: 160px;
+    font-size: 13px;
+    min-height: 58px;
+
+    img {
+      display: none;
+    }
+  }
+  &-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--header-h);
+  }
+  &-flex {
+    display: flex;
+    align-items: center;
+    grid-gap: clamp(28px, 2.625vw, 42px);
+  }
+  &-logo {
+    max-width: 68px;
+    position: relative;
+
+    filter: drop-shadow(0 8px 2px rgba(var(--clr-b), .5));
+
+    &::after {
+      @include pseudo;
+      width: 108px;
+      aspect-ratio: 1;
+      background-image: url("../../img/header/headerShineEffect.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      left: 50%;
+      pointer-events: none;
+      transform: translateX(-50%);
+      top: -10px;
+    }
+  }
+}
+
+.nav {
+  &-close {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 1.5rem;
+    top: 1.5rem;
+  }
+  &-list {
+    display: flex;
+    align-items: center;
+    grid-gap: clamp(24px, 2.375vw, 38px);
+  }
+  &-link {
+    img {
+      max-width: 26px;
+    }
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    transition: color 400ms ease;
+
+    @include hover {
+      color: #9f6b3b;
+    }
+    &--selected {
+      color: #9f6b3b;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .header {
+    &::after {
+      min-width: 1900px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &-flex {
+      grid-gap: 1rem;
+    }
+  }
+  .nav {
+    &-link {
+      img {
+        max-width: 20px;
+      }
+      font-size: 13px;
+    }
+  }
+}
+
+@include laptop {
+  .header {
+    &-cta {
+      background-image: linear-gradient(to top, #604238, #55372c);
+      min-width: 36px;
+      min-height: 36px;
+      border-radius: 50%;
+      padding: 0;
+
+      filter: drop-shadow(0 0 6px rgba(var(--clr-b), .75));
+      span {
+        display: none;
+      }
+      img {
+        width: 20px;
+        aspect-ratio: 1;
+        display: block;
+      }
+    }
+    &-menu {
+      display: flex;
+    }
+    &-logo {
+      max-width: 3rem;
+      &::after {
+        width: 74px;
+      }
+    }
+  }
+  .nav {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transform: translateY(-105%);
+    background-color: rgba(243, 237, 224, .5);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 12px 2px #d09342;
+    transition: transform 400ms ease;
+    will-change: transform;
+    &--active {
+      transform: translateY(0);
+    }
+    &-close {
+      display: flex;
+    }
+    &-list {
+      flex-direction: column;
+      grid-gap: 12px;
+      align-items: flex-start;
+      padding: 1.5rem;
+    }
+    &-link {
+      font-size: 15px;
+      &:not(:last-child) {
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(vaR(--clr-b), .25);
+        width: 100%;
+      }
+    }
+  }
+}
+
+@include small-tablet {
+  .header {
+    &-hidden {
+      padding-top: .5rem;
+    }
+    &-lang {
+      img {
+        display: none;
+      }
+    }
+  }
+}

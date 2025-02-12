@@ -1,0 +1,148 @@
+.rates {
+  --pb-spacing: 60px;
+  --display-variant: table;
+
+  margin-bottom: clamp(120px, 16.25vw, 260px);
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tabs {
+    &-button {
+      font-size: clamp(18px, 1.375vw, 22px);
+    }
+  }
+  &-flex {
+    display: flex;
+    align-items: center;
+    grid-gap: 30px;
+  }
+  &-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+  }
+  &-table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+      th {
+        &:first-child {
+          padding-left: 1rem !important;
+        }
+        &:last-child {
+          padding-right: 1rem !important;
+        }
+      }
+    }
+    th {
+      text-align: left;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: #919191;
+    }
+    tr {
+      padding: 0 16px;
+    }
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          background-color: #827665;
+        }
+        &:nth-child(even) {
+          background-color: #a29486;
+        }
+        &:nth-child(1) {
+          background-color: #8f5913;
+          border-radius: 20px;
+        }
+        &:not(:last-child) {
+          border-bottom: 4px solid var(--body-bg);
+        }
+      }
+    }
+    thead {
+      th {
+        padding: 1rem 0;
+      }
+    }
+    td {
+      font-size: 18px;
+      color: rgba(var(--clr-w), 1);
+      font-family: var(--ff-sec);
+      padding: 20px 0;
+
+      &:first-child {
+        border-radius: 26px 0px 0px 26px;
+        padding-left: 1rem;
+      }
+      &:last-child {
+        padding-right: 1rem;
+        border-radius: 0px 26px 26px 0px;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .rates {
+    --pb-spacing: 1.5rem;
+    &-header {
+      flex-direction: column;
+      grid-gap: 3rem;
+      align-items: flex-start;
+    }
+    &-controls {
+      flex-direction: column;
+      grid-gap: 1.5rem;
+    }
+    &-table {
+      min-width: 650px;
+    }
+    &-info {
+      overflow-x: scroll;
+    }
+    &-table {
+      th {
+        font-size: 1rem;
+      }
+      tr {
+        th {
+          padding: 12px 0;
+        }
+      }
+      tbody {
+        td {
+          padding: 12px 0;
+          font-size: 14px;
+        }
+      }
+    }
+    &-flex {
+      flex-wrap: wrap;
+      justify-content: center;
+      grid-gap: 1rem;
+    }
+    .button {
+      min-height: 54px;
+      min-width: auto;
+    }
+  }
+}
+
+@include small-tablet {
+  .rates {
+    &-tabs {
+      justify-content: space-between;
+      grid-gap: 0;
+      width: 100%;
+      &__button {
+        font-size: 14px !important;
+      }
+    }
+  }
+}

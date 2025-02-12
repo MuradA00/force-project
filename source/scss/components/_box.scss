@@ -1,0 +1,33 @@
+.box {
+  border-radius: 26px;
+  min-height: 100px;
+  padding: 10px;
+
+  position: relative;
+  border: 2px solid #c6beb3;
+    // &::after {
+    //   @include pseudo;
+    //   width: 100%;
+    //   height: calc(100% + 1.25rem);
+    //   background-image: url("../../img/general/frameImage.webp");
+    //   background-size: 100% 100%;
+    //   background-repeat: no-repeat;
+    //   top: -22px;
+    //   left: 0;
+    //   pointer-events: none;
+    // }
+    &--golden {
+      border-color: #967a4f;
+    }
+}
+
+@include mobile {
+  .box {
+    border: 2px solid #c6beb3;
+    border-radius: 12px;
+    padding: 6px;
+    &::after {
+      display: none;
+    }
+  }
+}

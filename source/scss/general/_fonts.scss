@@ -1,0 +1,75 @@
+@mixin font-face($font-family, $url, $weight, $style) {
+  @font-face {
+    font-style: $style;
+    font-weight: #{$weight};
+    font-family: "#{$font-family}";
+
+    font-display: swap;
+    src: url("../fonts/#{$url}.woff2") format("woff2"),
+    url("../fonts/#{$url}.woff") format("woff");
+  }
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Intro";
+
+  font-display: swap;
+  src: url("../Intro-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Intro";
+
+  font-display: swap;
+  src: url("../Intro-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 800;
+  font-family: "Intro";
+
+  font-display: swap;
+  src: url("../Intro-Black.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Amapola";
+
+  font-display: swap;
+  src: url("../Amapola-Modern.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 300;
+  font-family: "Gilroy";
+
+  font-display: swap;
+  src: url("../Gilroy-Light.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Constantine";
+
+  font-display: swap;
+  src: url("../Constantine.woff") format("woff");
+}
+
+// 100 – Thin || Hairline
+// 200 – Extra Light || Ultra Light || Thin
+// 300 – Light
+// 400 – Normal || Regular
+// 500 – Medium
+// 600 – Semi Bold || Demi Bold
+// 700 – Bold
+// 800 – Extra Bold || Ultra Bold || Heavy
+// 900 – Black || Heavy

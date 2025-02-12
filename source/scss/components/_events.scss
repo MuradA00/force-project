@@ -1,0 +1,117 @@
+.events {
+  --display-variant: flex;
+  --gap: 22px;
+  --pb-spacing: 22px;
+  &-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: clamp(24px, 2.5vw, 40px);
+    align-self: stretch;
+  }
+  &-tabs {
+    padding-bottom: var(--pb-spacing);
+    border-bottom: 3px solid #c3c0b8;
+    margin-bottom: 1rem;
+    &__button {
+      &::after {
+        height: 3px;
+      }
+    }
+  }
+  &-displays {
+    flex: 1;
+  }
+  &-discord {
+    display: flex;
+    flex-direction: column;
+    &__box {
+      flex: 1;
+      border-radius: 24px;
+      img {
+        height: 100%;
+        border-radius: inherit;
+      }
+    }
+  }
+  &-recently {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-heading {
+    justify-content: flex-start;
+    margin-bottom: clamp(32px, 3vw, 48px);
+  }
+  &-news {
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--gap);
+    margin-top: auto;
+    height: 100%;
+    justify-content: flex-end;
+    &__link {
+      min-height: 42px;
+      min-width: 126px;
+      font-size: 12px;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: var(--gap);
+      border-bottom: 2px solid #c3c0b8;
+    }
+    &__date {
+      font-size: clamp(12px, 0.875vw, 14px);
+      text-transform: uppercase;
+      color: #aca99e;
+      font-family: var(--ff-sec);
+    }
+    &__title {
+      font-size: 18px;
+      font-family: var(--ff-con);
+      font-weight: bold;
+      text-transform: uppercase;
+      span {
+        color: #ad986d;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .events {
+    &-tabs {
+      margin-bottom: 1.5rem;
+    }
+    &-row {
+      display: flex;
+      flex-direction: column-reverse;
+      grid-gap: 3rem;
+    }
+  }
+}
+
+@include small-tablet {
+  .events {
+    --gap: 14px;
+    &-tabs {
+      padding-bottom: 18px;
+      &__button {
+        font-size: 13px;
+        justify-content: space-between;
+        gap: 6px;
+        &::after {
+          bottom: -18px;
+        }
+      }
+    }
+    &-news {
+      &__title {
+        font-size: 14px;
+        max-width: 240px;
+        @include hide-text(1);
+      }
+    }
+  }
+}

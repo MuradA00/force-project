@@ -1,0 +1,49 @@
+.button {
+  --bg: url("../../img/buttons/button_brown.webp");
+
+  min-height: 70px;
+  @include dfc;
+  grid-gap: 10px;
+  padding: 0 20px;
+  text-align: center;
+  min-width: 194px;
+
+  font-size: 14px;
+  text-transform: uppercase;
+  color: rgba(var(--clr-w), 1);
+  font-family: var(--ff);
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  background-image: var(--bg);
+
+  transition: all 400ms ease;
+  cursor: pointer;
+  will-change: transform, letter-spacing;
+
+  filter: drop-shadow(0 4px 4px rgba(var(--clr-b), .5));
+
+  img {
+    max-width: 28px;
+  }
+
+  &--purple {
+    --bg: url("../../img/buttons/button_purrple.png");
+  }
+  &--red {
+    --bg: url("../../img/buttons/button_red.png");
+  }
+  @include hover {
+    transform: scale(1.05);
+    letter-spacing: 2px ;
+  }
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
