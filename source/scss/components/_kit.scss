@@ -28,7 +28,8 @@
 
     &__image {
       max-width: 208px;
-
+      transition: transform 400ms ease;
+      will-change: transform;
       position: relative;
       &::after {
         @include pseudo;
@@ -75,6 +76,11 @@
     }
     &__item {
       min-height: 530px;
+      @include hover {
+        .kit-cards__image {
+          transform: scale(1.05);
+        }
+      }
       &--yellow {
         --bg: #544933;
         --bubble: url("../../img/kit/yellowBubble.png");

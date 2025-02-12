@@ -7,13 +7,15 @@
   border: 2px solid #c6beb3;
     // &::after {
     //   @include pseudo;
-    //   width: 100%;
-    //   height: calc(100% + 1.25rem);
-    //   background-image: url("../../img/general/frameImage.webp");
+    //   width: 200px;
+    //   height: 24px;
+    //   background-image: url("../../img/general/frameDefault.png");
     //   background-size: 100% 100%;
     //   background-repeat: no-repeat;
-    //   top: -22px;
-    //   left: 0;
+    //   top: -10px;
+    //   left: 50%;
+    //   z-index: 2;
+    //   transform: translateX(-50%);
     //   pointer-events: none;
     // }
     &--golden {

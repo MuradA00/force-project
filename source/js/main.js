@@ -16,6 +16,17 @@ const ratesDisplayContainer = document.querySelector(".rates-displays")
 const eventsTabContainer = document.querySelector(".events-tabs");
 const eventsDisplayContainer = document.querySelector(".events-displays");
 const availableProjectsVideos =  document.querySelectorAll(".projects-item");
+const ratesButtons = document.querySelectorAll(".rates-flex__button");
+
+if (ratesButtons.length) {
+  ratesButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      ratesButtons.forEach(btn => btn.removeAttribute("disabled"));
+
+      btn.setAttribute("disabled", true);
+    })
+  })
+}
 
 console.log(availableProjectsVideos);
 
