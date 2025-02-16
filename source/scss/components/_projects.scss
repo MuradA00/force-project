@@ -43,7 +43,6 @@
       font-size: clamp(13px, 1.125vw, 18px);
       text-transform: uppercase;
       color: #979592;
-
       position: relative;
 
       &::after {
@@ -162,6 +161,18 @@
   .projects {
     &-overlay {
       display: none;
+    }
+  }
+}
+
+@include mobile {
+  .projects {
+    &-tabs {
+      &__button {
+        &::after {
+          bottom: calc(var(--pb-spacing)* -1);
+        }
+      }
     }
   }
 }

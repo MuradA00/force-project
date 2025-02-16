@@ -84,6 +84,11 @@
     &-tabs {
       margin-bottom: 1.5rem;
     }
+    &-discord {
+      &__box {
+        flex: auto;
+      }
+    }
     &-row {
       display: flex;
       flex-direction: column-reverse;
