@@ -21,9 +21,9 @@ const ratesButtons = document.querySelectorAll(".rates-flex__button");
 if (ratesButtons.length) {
   ratesButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      ratesButtons.forEach(btn => btn.removeAttribute("disabled"));
+      ratesButtons.forEach(btn => btn.classList.remove("rates-flex__button--selected"));
 
-      btn.setAttribute("disabled", true);
+      btn.classList.add("rates-flex__button--selected");
     })
   })
 }

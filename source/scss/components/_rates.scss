@@ -18,6 +18,13 @@
     display: flex;
     align-items: center;
     grid-gap: 30px;
+    &__button {
+      opacity: .5;
+
+      &--selected {
+        opacity: 1;
+      }
+    }
   }
   &-controls {
     display: flex;
