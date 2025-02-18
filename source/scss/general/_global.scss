@@ -47,8 +47,9 @@ body {
 
   @include mobile {
     flex-direction: column;
-    align-items: flex-start;
-    grid-gap: 6px;
+    align-items: normal;
+    grid-gap: 12px;
+    line-height: 110%;
   }
 
   &-title {
