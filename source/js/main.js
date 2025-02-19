@@ -16,7 +16,54 @@ const ratesDisplayContainer = document.querySelector(".rates-displays")
 const eventsTabContainer = document.querySelector(".events-tabs");
 const eventsDisplayContainer = document.querySelector(".events-displays");
 const availableProjectsVideos =  document.querySelectorAll(".projects-item");
+const infoTabContainer = document.querySelector(".info-nav__list");
+const infoTabContentContainer = document.querySelector(".info-contents");
 const ratesButtons = document.querySelectorAll(".rates-flex__button");
+const singlePageDropdowns = document.querySelectorAll(".text-dropdowns__item");
+const infoSidebarCollapseButton = document.querySelector(".info-collapse");
+const infoSidebar = document.querySelector(".info-nav");
+const infoControlsButtons = document.querySelectorAll(".info-buttons button");
+
+if (infoControlsButtons.length) {
+  infoControlsButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      infoControlsButtons.forEach(btn => btn.classList.remove("button--hl"))
+      button.classList.add("button--hl")
+    })
+  })
+}
+
+if (infoSidebarCollapseButton) {
+  infoSidebarCollapseButton.addEventListener("click", () => {
+    infoSidebar.classList.toggle("info-nav--collapsed");
+    infoSidebarCollapseButton.classList.toggle("info-collapse--active");
+  })
+}
+
+if (singlePageDropdowns.length) {
+  singlePageDropdowns.forEach((dropdown) => {
+    const hiddenContent = dropdown.querySelector(".text-dropdowns__hidden");
+
+    dropdown.addEventListener("click", () => {
+      const isExpanded = dropdown.classList.contains(
+        "text-dropdowns__item--expanded"
+      );
+
+      singlePageDropdowns.forEach((otherDropdown) => {
+        const otherHiddenContent = otherDropdown.querySelector(
+          ".text-dropdowns__hidden"
+        );
+        otherDropdown.classList.remove("text-dropdowns__item--expanded");
+        otherHiddenContent.style.maxHeight = null;
+      });
+
+      if (!isExpanded) {
+        dropdown.classList.add("text-dropdowns__item--expanded");
+        hiddenContent.style.maxHeight = hiddenContent.scrollHeight + "px";
+      }
+    });
+  });
+}
 
 if (ratesButtons.length) {
   ratesButtons.forEach(btn => {
@@ -27,8 +74,6 @@ if (ratesButtons.length) {
     })
   })
 }
-
-console.log(availableProjectsVideos);
 
 if (availableProjectsVideos.length) {
   availableProjectsVideos.forEach(video => {
@@ -43,17 +88,24 @@ if (availableProjectsVideos.length) {
   })
 }
 
-const handleTabs = (controllerContainer, displayContainer) => {
-  const controllers = controllerContainer.querySelectorAll(".tabs-button");
-  const displays = displayContainer.querySelectorAll(".tabs-display");
+const handleTabs = (
+  controllerContainer,
+  displayContainer,
+  tabButtonClassList = ".tabs-button",
+  tabDisplayClassList = ".tabs-display",
+  buttonActiveClassList = "tabs-button--selected",
+  displayActiveClassList = "tabs-display--selected"
+) => {
+  const controllers = controllerContainer.querySelectorAll(tabButtonClassList);
+  const displays = displayContainer.querySelectorAll(tabDisplayClassList);
 
   controllers.forEach((button, i) => {
     button.addEventListener("click", () => {
-      controllers.forEach(button => button.classList.remove("tabs-button--selected"));
-      button.classList.add("tabs-button--selected");
+      controllers.forEach(button => button.classList.remove(buttonActiveClassList));
+      button.classList.add(buttonActiveClassList);
 
-      displays.forEach(display => display.classList.remove("tabs-display--selected"));
-      displays[i].classList.add("tabs-display--selected");
+      displays.forEach(display => display.classList.remove(displayActiveClassList));
+      displays[i].classList.add(displayActiveClassList);
     })
   })
 }
@@ -62,6 +114,14 @@ window.addEventListener("load", () => {
   projectsTabContainer && handleTabs(projectsTabContainer, projectsDisplayContainer);
   ratesDisplayContainer && handleTabs(ratesTabContainer, ratesDisplayContainer);
   eventsTabContainer && handleTabs(eventsTabContainer, eventsDisplayContainer);
+  infoTabContentContainer && handleTabs(
+    infoTabContainer,
+    infoTabContentContainer,
+    ".info-nav__item",
+    ".text",
+    "info-nav__item--selected",
+    "fade-in"
+  );
 })
 
 if (bonusesHoverButton) {
@@ -82,6 +142,8 @@ const o = document.querySelector(".bonuses-counter__item:nth-child(1) .bonuses-c
 const startDateUTC = new Date("2025-02-21T00:00:00Z");
 
 function updateTimer() {
+    if (!o) return;
+
     const now = new Date();
     const localOffset = now.getTimezoneOffset() * 60000;
     const localTime = new Date(now.getTime() - localOffset);

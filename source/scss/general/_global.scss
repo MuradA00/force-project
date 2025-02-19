@@ -39,6 +39,10 @@ body {
   }
 }
 
+.single-bg {
+  background-image: url("../../img/info/bg_info.jpg");
+}
+
 .heading {
   display: flex;
   align-items: center;
@@ -78,7 +82,7 @@ body {
 
 .fade-in {
   display: block !important;
-  animation: fade-in 2s ease;
+  animation: fade-in var(--timing, 2s) ease;
 }
 
 @keyframes fade-in {
