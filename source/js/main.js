@@ -1,3 +1,4 @@
+import Swiper from 'swiper';
 import './_vendor';
 // import './_functions';
 // import './_components';
@@ -176,11 +177,11 @@ const menuHandler = () => {
   if (menuButton.classList.contains('header-menu--active')) {
     menu.classList.add('nav--active')
     document.documentElement.style.overflow = 'hidden';
-    body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
   } else {
     menu.classList.remove('nav--active')
     document.documentElement.style.overflow = '';
-    body.style.overflow = ''
+    document.body.style.overflow = ''
   }
 }
 
@@ -191,7 +192,7 @@ if (menuButton) {
     menuButton.classList.remove('header-menu--active');
     menu.classList.remove('nav--active')
     document.documentElement.style.overflow = '';
-    body.style.overflow = ''
+    document.body.style.overflow = ''
   })
 }
 
