@@ -168,6 +168,9 @@
 
 @include mobile {
   .home {
+    &-body {
+      padding-top: var(--header-h);
+    }
     &-title {
       font-size: 18px;
       span {
