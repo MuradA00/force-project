@@ -1,6 +1,20 @@
 .projects {
   --pb-spacing: 50px;
   position: relative;
+  .swiper-scrollbar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent !important;
+    z-index: 10;
+    height: 5px;
+    & > * {
+      background-color: #d09342;
+    }
+  }
+  &-list {
+    margin-bottom: 32px;
+  }
   &-video {
     position: absolute !important;
     width: 100% !important;
@@ -72,7 +86,7 @@
       }
     }
   }
-  &-footer {
+  &-add {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,8 +99,10 @@
   &-cta {
     min-width: 248px;
     min-height: 86px;
+    position: relative;
+    z-index: 60;
   }
-  &-footer {
+  &-add {
     position: relative;
 
     &::after {
@@ -175,4 +191,51 @@
       }
     }
   }
+}
+
+.gallery-thumbs {
+  box-sizing: border-box;
+  padding-top: 10px;
+}
+
+.gallery-top .swiper-slide {
+  min-height: clamp(200px, 18.75vw, 300px);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  & > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.gallery-thumbs .swiper-slide {
+  opacity: 0.5;
+  min-height: clamp(80px, 7.5vw, 120px);
+  transition: transform 300ms ease, opacity 300ms ease;
+  will-change: transform;
+
+  position: relative;
+  border-radius: 6px;
+  cursor: pointer;
+
+  overflow: hidden;
+
+  & > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+  transform: scale(.95);
 }

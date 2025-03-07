@@ -66,6 +66,9 @@
     flex-direction: column;
     align-items: flex-start;
     grid-gap: 3rem;
+    & > * {
+      width: 100%;
+    }
   }
 }
 

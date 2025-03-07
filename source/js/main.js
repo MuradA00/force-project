@@ -1,5 +1,3 @@
-import Swiper from 'swiper';
-import './_vendor';
 // import './_functions';
 // import './_components';
 
@@ -24,6 +22,11 @@ const singlePageDropdowns = document.querySelectorAll(".text-dropdowns__item");
 const infoSidebarCollapseButton = document.querySelector(".info-collapse");
 const infoSidebar = document.querySelector(".info-nav");
 const infoControlsButtons = document.querySelectorAll(".info-buttons button");
+const kitDisplayContainer = document.querySelector(".kit-body");
+const kitTabContainer = document.querySelector(".kit-tabs");
+const projectsSection = document.querySelector(".projects");
+const gallery = document.querySelector(".gallery-top");
+const streamSlider = document.querySelector(".projects-slider:nth-child(1)");
 
 if (infoControlsButtons.length) {
   infoControlsButtons.forEach(button => {
@@ -112,6 +115,7 @@ const handleTabs = (
 }
 
 window.addEventListener("load", () => {
+  kitDisplayContainer && handleTabs(kitTabContainer, kitDisplayContainer);
   projectsTabContainer && handleTabs(projectsTabContainer, projectsDisplayContainer);
   ratesDisplayContainer && handleTabs(ratesTabContainer, ratesDisplayContainer);
   eventsTabContainer && handleTabs(eventsTabContainer, eventsDisplayContainer);
@@ -124,6 +128,7 @@ window.addEventListener("load", () => {
     "fade-in"
   );
 })
+
 
 if (bonusesHoverButton) {
   bonusesHoverButton.addEventListener("mouseover", () => {
@@ -196,20 +201,57 @@ if (menuButton) {
   })
 }
 
-
 if (Swiper) {
-  new Swiper(".projects-slider", {
-    slidesPerView: "auto",
-    spaceBetween: 20,
-    breakpoints: {
-      600: {
+  if (projectsSection) {
+    const initializeGallerySlider = (sliderSelector, thumbsSelector) => {
+      const thumbs = new Swiper(thumbsSelector, {
+        spaceBetween: 5,
         slidesPerView: 2,
-      },
-      1200: {
-        spaceBetween: 32,
-        slidesPerView: 4,
-      }
-    }
-  })
-}
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 10,
+          },
+        }
+      });
+      new Swiper(sliderSelector, {
+        spaceBetween: 10,
+        slidesPerView: 1,
+        thumbs: {
+          swiper: thumbs
+        },
+      });
+    };
 
+    initializeGallerySlider(
+      '.projects-slider:nth-child(2) .gallery-top',
+      '.projects-slider:nth-child(2) .gallery-thumbs',
+    );
+    initializeGallerySlider(
+      '.projects-slider:nth-child(3) .gallery-top',
+      '.projects-slider:nth-child(3) .gallery-thumbs',
+    );
+
+    new Swiper(streamSlider, {
+      slidesPerView: "auto",
+      spaceBetween: 20,
+      observeParents: true,
+      observer: true,
+      scrollbar: {
+        el: '.projects-slider:nth-child(1) .swiper-scrollbar',
+        draggable: true,
+      },
+      breakpoints: {
+        600: {
+          slidesPerView: 2,
+        },
+        1200: {
+          spaceBetween: 32,
+          slidesPerView: 4,
+        }
+      }
+    });
+  }
+}
