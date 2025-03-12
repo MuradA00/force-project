@@ -2,7 +2,7 @@
 // import './_components';
 
 
-const bonusesHiddenContent = document.querySelector(".bonuses-hidden");
+const bonusesHiddenContent = document.querySelector(".bonuses-hidden--main");
 const bonusesHoverButton = document.querySelector(".bonuses-cta");
 const menuButton = document.querySelector('.header-menu');
 const menu = document.querySelector('.nav');
@@ -27,6 +27,21 @@ const kitTabContainer = document.querySelector(".kit-tabs");
 const projectsSection = document.querySelector(".projects");
 const gallery = document.querySelector(".gallery-top");
 const streamSlider = document.querySelector(".projects-slider:nth-child(1)");
+const serverItems = document.querySelectorAll(".servers-list__item");
+const serverRevealBlocks = document.querySelectorAll(".hidden");
+
+if (serverItems.length) {
+  serverItems.forEach((server, i) => {
+    server.addEventListener("mouseover", () => {
+      serverRevealBlocks.forEach(block => block.classList.toggle("hidden--visible", false));
+      serverRevealBlocks[i]?.classList.add("hidden--visible");
+    });
+
+    server.addEventListener("mouseleave", () => {
+      serverRevealBlocks.forEach(block => block.classList.toggle("hidden--visible", false));
+    });
+  });
+}
 
 if (infoControlsButtons.length) {
   infoControlsButtons.forEach(button => {
@@ -147,32 +162,27 @@ const o = document.querySelector(".bonuses-counter__item:nth-child(1) .bonuses-c
 
 const startDateUTC = new Date("2025-02-21T00:00:00Z");
 
-function updateTimer() {
+function updateTimer(isCountingUp = false) {
     if (!o) return;
 
     const now = new Date();
     const localOffset = now.getTimezoneOffset() * 60000;
     const localTime = new Date(now.getTime() - localOffset);
-    const remaining = startDateUTC.getTime() - localTime.getTime();
 
-    if (remaining > 0) {
-        const totalSeconds = Math.floor(remaining / 1000);
-        const d = Math.floor(totalSeconds / 86400);
-        const hVal = Math.floor((totalSeconds % 86400) / 3600);
-        const m = Math.floor((totalSeconds % 3600) / 60);
-        const s = totalSeconds % 60;
+    let remaining = isCountingUp
+        ? localTime.getTime() - startDateUTC.getTime()
+        : startDateUTC.getTime() - localTime.getTime();
 
-        o.textContent = String(d).padStart(2, "0");
-        l.textContent = String(hVal).padStart(2, "0");
-        c.textContent = String(m).padStart(2, "0");
-        h.textContent = String(s).padStart(2, "0");
-    } else {
-        clearInterval(timerInterval);
-        o.textContent = "00";
-        l.textContent = "00";
-        c.textContent = "00";
-        h.textContent = "00";
-    }
+    const totalSeconds = Math.abs(Math.floor(remaining / 1000));
+    const d = Math.floor(totalSeconds / 86400);
+    const hVal = Math.floor((totalSeconds % 86400) / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+
+    o.textContent = String(d).padStart(2, "0");
+    l.textContent = String(hVal).padStart(2, "0");
+    c.textContent = String(m).padStart(2, "0");
+    h.textContent = String(s).padStart(2, "0");
 }
 
 updateTimer();
