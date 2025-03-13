@@ -1,13 +1,12 @@
 // import './_functions';
 // import './_components';
-
+import "./_timer";
 
 const bonusesHiddenContent = document.querySelector(".bonuses-hidden--main");
 const bonusesHoverButton = document.querySelector(".bonuses-cta");
 const menuButton = document.querySelector('.header-menu');
 const menu = document.querySelector('.nav');
 const closeMenuButton = document.querySelector('.nav-close');
-const timerInterval = setInterval(updateTimer, 1000);
 const projectsTabContainer = document.querySelector(".projects-tabs");
 const projectsDisplayContainer = document.querySelector(".projects-displays");
 const ratesTabContainer = document.querySelector(".rates-tabs");
@@ -154,38 +153,6 @@ if (bonusesHoverButton) {
     bonusesHiddenContent.classList.remove("bonuses-hidden--revealed");
   })
 }
-
-const o = document.querySelector(".bonuses-counter__item:nth-child(1) .bonuses-counter__value"),
-    l = document.querySelector(".bonuses-counter__item:nth-child(2) .bonuses-counter__value"),
-    c = document.querySelector(".bonuses-counter__item:nth-child(3) .bonuses-counter__value"),
-    h = document.querySelector(".bonuses-counter__item:nth-child(4) .bonuses-counter__value");
-
-const startDateUTC = new Date("2025-02-21T00:00:00Z");
-
-function updateTimer(isCountingUp = false) {
-    if (!o) return;
-
-    const now = new Date();
-    const localOffset = now.getTimezoneOffset() * 60000;
-    const localTime = new Date(now.getTime() - localOffset);
-
-    let remaining = isCountingUp
-        ? localTime.getTime() - startDateUTC.getTime()
-        : startDateUTC.getTime() - localTime.getTime();
-
-    const totalSeconds = Math.abs(Math.floor(remaining / 1000));
-    const d = Math.floor(totalSeconds / 86400);
-    const hVal = Math.floor((totalSeconds % 86400) / 3600);
-    const m = Math.floor((totalSeconds % 3600) / 60);
-    const s = totalSeconds % 60;
-
-    o.textContent = String(d).padStart(2, "0");
-    l.textContent = String(hVal).padStart(2, "0");
-    c.textContent = String(m).padStart(2, "0");
-    h.textContent = String(s).padStart(2, "0");
-}
-
-updateTimer();
 
 const menuHandler = () => {
   menuButton.classList.toggle('header-menu--active');

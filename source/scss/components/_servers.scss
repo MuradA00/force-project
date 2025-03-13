@@ -191,8 +191,9 @@
   &-description {
     margin-top: auto;
     font-size: clamp(1rem, 1.25vw, 20px);
-    font-family: var(--ff-sec);
+    font-family: var(--ff-gil);
     text-align: center;
+    font-weight: 600;
     &--hl {
       color: #ffd75d;
     }
@@ -321,6 +322,7 @@
   top: 0;
   left: 0;
   transform: translate(0,0);
+  padding: 20px clamp(24px, 2vw, 32px);
   &--visible {
     opacity: 1;
     pointer-events: all;
@@ -342,8 +344,10 @@
   &-stats {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-family: var(--ff-sec);
+    grid-gap: 6px 0;
 
     padding-bottom: 14px;
     border-bottom: 2px solid #7d694c;
@@ -355,7 +359,7 @@
     font-family: var(--ff-sec);
     text-align: left;
 
-    @include hide-text(3);
+    // @include hide-text(3);
   }
   &-footer {
     max-width: 400px;
@@ -366,7 +370,7 @@
     font-size: clamp(14px, 0.875vw, 16px);
     display: block;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   .bonuses-counter {
     padding-bottom: 0;
