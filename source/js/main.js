@@ -28,6 +28,8 @@ const gallery = document.querySelector(".gallery-top");
 const streamSlider = document.querySelector(".projects-slider:nth-child(1)");
 const serverItems = document.querySelectorAll(".servers-list__item");
 const serverRevealBlocks = document.querySelectorAll(".hidden");
+const filesDisplayContainer = document.querySelector(".files-displays");
+const filesButtonsContainer = document.querySelector(".files-controllers");
 
 if (serverItems.length) {
   serverItems.forEach((server, i) => {
@@ -129,6 +131,7 @@ const handleTabs = (
 }
 
 window.addEventListener("load", () => {
+  filesDisplayContainer && handleTabs(filesButtonsContainer, filesDisplayContainer);
   kitDisplayContainer && handleTabs(kitTabContainer, kitDisplayContainer);
   projectsTabContainer && handleTabs(projectsTabContainer, projectsDisplayContainer);
   ratesDisplayContainer && handleTabs(ratesTabContainer, ratesDisplayContainer);

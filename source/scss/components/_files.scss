@@ -1,4 +1,5 @@
 .files {
+  --display-variant: grid;
   --spacing: clamp(20px, 1.75vw, 28px);
   padding-top: clamp(120px, 11.875vw, 190px);
   padding-bottom: clamp(200px, 16.25vw, 260px);
@@ -15,6 +16,15 @@
     &__button {
       min-height: 88px;
       position: relative;
+      color: rgba(var(--clr-w), 1) !important;
+      transition: all 300ms ease;
+      opacity: .5;
+      &::after {
+        display: none;
+      }
+    }
+    .tabs-button--selected {
+      opacity: 1;
     }
     &__label {
       position: absolute;
@@ -227,6 +237,7 @@
 
 @include small-tablet {
   .files {
+    --display-variant: flex;
     .heading {
       align-items: center;
     }
