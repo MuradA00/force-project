@@ -38,6 +38,13 @@ body {
   }
 }
 
+.dropdown-wrapper {
+  background-color: #55372c;
+  border-radius: 8px;
+  border: 2px solid #967a4f;
+  padding: 12px 0;
+}
+
 .tippy-box[data-theme~="custom"] {
   background-color: #3b332d;
   padding: 12px;
