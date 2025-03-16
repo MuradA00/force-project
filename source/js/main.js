@@ -1,6 +1,7 @@
 // import './_functions';
 // import './_components';
 import "./_timer";
+import tippy, {followCursor} from 'tippy.js'; // optional for styling
 
 const bonusesHiddenContent = document.querySelector(".bonuses-hidden--main");
 const bonusesHoverButton = document.querySelector(".bonuses-cta");
@@ -24,12 +25,27 @@ const infoControlsButtons = document.querySelectorAll(".info-buttons button");
 const kitDisplayContainer = document.querySelector(".kit-body");
 const kitTabContainer = document.querySelector(".kit-tabs");
 const projectsSection = document.querySelector(".projects");
-const gallery = document.querySelector(".gallery-top");
+// const gallery = document.querySelector(".gallery-top");
 const streamSlider = document.querySelector(".projects-slider:nth-child(1)");
 const serverItems = document.querySelectorAll(".servers-list__item");
 const serverRevealBlocks = document.querySelectorAll(".hidden");
 const filesDisplayContainer = document.querySelector(".files-displays");
 const filesButtonsContainer = document.querySelector(".files-controllers");
+const kitCards = document.querySelectorAll(".kit-cards__item");
+
+if (kitCards.length && tippy) {
+  console.log(cardContents.length)
+  kitCards.forEach((card, i) => {
+    tippy(card, {
+      theme: "custom",
+      content: cardContents[i],
+      followCursor: true,
+      placement: "right",
+      plugins: [followCursor],
+      allowHTML: true,
+    })
+  })
+}
 
 if (serverItems.length) {
   serverItems.forEach((server, i) => {

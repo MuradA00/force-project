@@ -35,8 +35,14 @@ body {
   }
   @include small-tablet {
     background-size: 800px auto;
-
   }
+}
+
+.tippy-box[data-theme~="custom"] {
+  background-color: #3b332d;
+  padding: 12px;
+  border: 1px solid #967a4f;
+  border-radius: 12px;
 }
 
 .single-bg {

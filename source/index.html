@@ -16,6 +16,809 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"></script>
 <script>
+  const cardContents = [
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+    `            <div class="itm-list">
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/pa.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум аккаунт на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/prembuff.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Премиум бафф на <span class="itm__accent">7 дней</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/weapon_draconic_bow_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Оружие <span class="itm__accent">+18</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_t88_u_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Брони <span class="itm__accent">+16</span></div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/accessory_tateossian_necklace_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Сет Бижутерии <span class="itm__accent">+16</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_return_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Escape <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_scroll_of_resurrection_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Blessed Scroll of Resurrection <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_cp_potion_i01_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Greater CP Potion <span class="itm__accent">x5000</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_super_cp_potion_i05_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Elixir of CP (S-Grade) <span class="itm__accent">x50</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_potion_gold_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Quick Healing Potion <span class="itm__accent">x25</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/armor_underwear02_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Тату на выбор <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_blue_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска ника <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="itm__pic">
+                        <img src="https://lineagers.net/template/site/new/images/card/etc_oblivion_green_i00_0.png" class="itm__img">
+                    </div>
+                    <div class="itm__content">Покраска титула <span class="itm__accent">x1</span>
+                    </div>
+                </div>
+            </div>`,
+  ]
 	const __config = {
 		timer: {
 			dd: [
