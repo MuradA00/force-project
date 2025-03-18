@@ -1,7 +1,7 @@
 // import './_functions';
 // import './_components';
-import "./_timer";
 import tippy, {followCursor} from 'tippy.js';
+import "./_timer";
 
 const bonusesHiddenContent = document.querySelector(".bonuses-hidden--main");
 const bonusesHoverButton = document.querySelector(".bonuses-cta");
@@ -184,7 +184,7 @@ const handleTabs = (
 
 filesDisplayContainer && handleTabs(filesButtonsContainer, filesDisplayContainer);
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   kitDisplayContainer && handleTabs(kitTabContainer, kitDisplayContainer);
   projectsTabContainer && handleTabs(projectsTabContainer, projectsDisplayContainer);
   eventsTabContainer && handleTabs(eventsTabContainer, eventsDisplayContainer);
