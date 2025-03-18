@@ -363,13 +363,14 @@
   }
   &-footer {
     max-width: 400px;
-    align-self: flex-start;
+    align-self: center;
+    text-align: center;
   }
   &-label {
     text-transform: uppercase;
     font-size: clamp(14px, 0.875vw, 16px);
     display: block;
-    text-align: left;
+    text-align: center;
     margin-bottom: 10px;
   }
   .bonuses-counter {

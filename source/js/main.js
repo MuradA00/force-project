@@ -10,14 +10,11 @@ const menu = document.querySelector('.nav');
 const closeMenuButton = document.querySelector('.nav-close');
 const projectsTabContainer = document.querySelector(".projects-tabs");
 const projectsDisplayContainer = document.querySelector(".projects-displays");
-const ratesTabContainer = document.querySelector(".rates-tabs");
-const ratesDisplayContainer = document.querySelector(".rates-displays")
 const eventsTabContainer = document.querySelector(".events-tabs");
 const eventsDisplayContainer = document.querySelector(".events-displays");
 const availableProjectsVideos =  document.querySelectorAll(".projects-item");
 const infoTabContainer = document.querySelector(".info-nav__list");
 const infoTabContentContainer = document.querySelector(".info-contents");
-const ratesButtons = document.querySelectorAll(".rates-flex__button");
 const singlePageDropdowns = document.querySelectorAll(".text-dropdowns__item");
 const infoSidebarCollapseButton = document.querySelector(".info-collapse");
 const infoSidebar = document.querySelector(".info-nav");
@@ -32,6 +29,56 @@ const serverRevealBlocks = document.querySelectorAll(".hidden");
 const filesDisplayContainer = document.querySelector(".files-displays");
 const filesButtonsContainer = document.querySelector(".files-controllers");
 const kitCards = document.querySelectorAll(".kit-cards__item");
+const ratesMainDisplays = document.querySelectorAll(".rates-displays__item");
+const ratesMainTabControllers = document.querySelectorAll(".rates-tabs__button");
+const ratesInnerDisplays = document.querySelectorAll(".rates-table");
+const ratesInnerControllers = document.querySelectorAll(".rates-flex__button");
+
+if (ratesMainDisplays.length) {
+  // Инициализация первого основного и внутреннего таба
+  ratesMainTabControllers[0].classList.add("tabs-button--selected");
+  ratesInnerControllers[0].classList.add("rates-flex__button--selected");
+  ratesMainDisplays[0].classList.add("tabs-display--selected");
+  ratesInnerDisplays[0].classList.add("tabs-display--selected");
+
+  ratesMainTabControllers.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      ratesMainTabControllers.forEach(btn => btn.classList.remove("tabs-button--selected"));
+      ratesMainDisplays.forEach(display => display.classList.remove("tabs-display--selected"));
+
+      btn.classList.add("tabs-button--selected");
+      ratesMainDisplays[i].classList.add("tabs-display--selected");
+
+      const activeMainDisplay = ratesMainDisplays[i];
+      const firstInnerTable = activeMainDisplay.querySelector(".rates-table");
+      const firstInnerButton = activeMainDisplay.querySelector(".rates-flex__button");
+
+      if (firstInnerTable) {
+        const innerTables = activeMainDisplay.querySelectorAll(".rates-table");
+        innerTables.forEach(table => table.classList.remove("tabs-display--selected"));
+        firstInnerTable.classList.add("tabs-display--selected");
+      }
+
+      if (firstInnerButton) {
+        const innerButtons = activeMainDisplay.querySelectorAll(".rates-flex__button");
+        innerButtons.forEach(innerButton => innerButton.classList.remove("rates-flex__button--selected"));
+        firstInnerButton.classList.add("rates-flex__button--selected");
+      }
+    });
+  });
+
+  ratesInnerControllers.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      ratesInnerControllers.forEach(btn => btn.classList.remove("rates-flex__button--selected"));
+      btn.classList.add("rates-flex__button--selected");
+      ratesInnerDisplays
+        .forEach(
+          display => display.classList.remove("tabs-display--selected"
+        ));
+        ratesInnerDisplays[i].classList.add("tabs-display--selected");
+    })
+  })
+}
 
 if (kitCards.length && tippy) {
   console.log(cardContents.length)
@@ -101,16 +148,6 @@ if (singlePageDropdowns.length) {
   });
 }
 
-if (ratesButtons.length) {
-  ratesButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      ratesButtons.forEach(btn => btn.classList.remove("rates-flex__button--selected"));
-
-      btn.classList.add("rates-flex__button--selected");
-    })
-  })
-}
-
 if (availableProjectsVideos.length) {
   availableProjectsVideos.forEach(video => {
     const playButton = video.querySelector(".projects-controller");
@@ -150,7 +187,6 @@ window.addEventListener("load", () => {
   filesDisplayContainer && handleTabs(filesButtonsContainer, filesDisplayContainer);
   kitDisplayContainer && handleTabs(kitTabContainer, kitDisplayContainer);
   projectsTabContainer && handleTabs(projectsTabContainer, projectsDisplayContainer);
-  ratesDisplayContainer && handleTabs(ratesTabContainer, ratesDisplayContainer);
   eventsTabContainer && handleTabs(eventsTabContainer, eventsDisplayContainer);
   infoTabContentContainer && handleTabs(
     infoTabContainer,
