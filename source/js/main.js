@@ -1,7 +1,7 @@
 // import './_functions';
 // import './_components';
 import "./_timer";
-import tippy, {followCursor} from 'tippy.js'; // optional for styling
+import tippy, {followCursor} from 'tippy.js';
 
 const bonusesHiddenContent = document.querySelector(".bonuses-hidden--main");
 const bonusesHoverButton = document.querySelector(".bonuses-cta");
@@ -35,7 +35,6 @@ const ratesInnerDisplays = document.querySelectorAll(".rates-table");
 const ratesInnerControllers = document.querySelectorAll(".rates-flex__button");
 
 if (ratesMainDisplays.length) {
-  // Инициализация первого основного и внутреннего таба
   ratesMainTabControllers[0].classList.add("tabs-button--selected");
   ratesInnerControllers[0].classList.add("rates-flex__button--selected");
   ratesMainDisplays[0].classList.add("tabs-display--selected");
@@ -183,8 +182,9 @@ const handleTabs = (
   })
 }
 
+filesDisplayContainer && handleTabs(filesButtonsContainer, filesDisplayContainer);
+
 window.addEventListener("load", () => {
-  filesDisplayContainer && handleTabs(filesButtonsContainer, filesDisplayContainer);
   kitDisplayContainer && handleTabs(kitTabContainer, kitDisplayContainer);
   projectsTabContainer && handleTabs(projectsTabContainer, projectsDisplayContainer);
   eventsTabContainer && handleTabs(eventsTabContainer, eventsDisplayContainer);
